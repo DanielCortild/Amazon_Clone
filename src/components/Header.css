@@ -37,6 +37,8 @@
   background: #dda020;
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
+
+  cursor: pointer;
 }
 
 .header__nav {

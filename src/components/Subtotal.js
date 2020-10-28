@@ -2,15 +2,11 @@ import React from 'react';
 import './Subtotal.css';
 import CurrencyFormat from 'react-currency-format';
 import { useStateValue } from '../StateProvider';
+import { getTotal } from '../reducer';
 
 export default () => {
   const [{cart}, _] = useStateValue();
 
-  const getTotal = () => {
-    let total = 0; 
-    cart.forEach(item => total += item.price);
-    return total;
-  }
   return (
     <div className="subtotal">
       <CurrencyFormat
@@ -26,7 +22,7 @@ export default () => {
           </>
         )}
         decimalScale={2}
-        value={getTotal()}
+        value={getTotal(cart)}
         displayType={"text"}
         thousandSeparator={true}
         prefix={"€"}
