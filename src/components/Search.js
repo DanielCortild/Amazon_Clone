@@ -26,8 +26,8 @@ export default () => {
     <div className="search">
       {
         data?.filter(({title}) => String(title).toLowerCase().includes(String(q).toLowerCase()))
-              .map(({id, title, price, image}) => (
-          <Product key={id} id={id} title={title} price={price} rating={5} image={image} />
+              .map(({asin, title, price, image}) => (
+          <Product key={asin} asin={asin} title={title} price={price} rating={5} image={image} />
         ))
       }
     </div>

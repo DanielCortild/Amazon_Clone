@@ -14,9 +14,9 @@ export default () => {
         <div>
           <h3>{user ? `Hello ${user?.email}` : ''}</h3>
           <h2 className="checkout__title">Your Shopping Cart</h2>
-          {cart?.map(({id, title, price, rating, image}) => (
+          {cart?.map(({asin, title, price, rating, image}) => (
             <CheckoutProduct
-              id={id}
+              asin={asin}
               title={title}
               price={price}
               rating={rating}
