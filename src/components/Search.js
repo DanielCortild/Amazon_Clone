@@ -5,7 +5,7 @@ import Product from './Product';
 import './Search.css';
 import axios from 'axios';
 
-export default () => {
+const Search = () => {
   const [{q}, dispatch] = useStateValue();
   const [data, setData] = useState([]);
   const history = useHistory();
@@ -16,8 +16,6 @@ export default () => {
           .then(res => setData(res.data))
     }
     fetch();
-    console.log(data);
-
     let q2 = history?.location?.search?.split("=").pop()
     if(q2)  dispatch({type: 'SEARCH', q: q2});
   }, [])
@@ -33,3 +31,5 @@ export default () => {
     </div>
   )
 }
+
+export default Search;

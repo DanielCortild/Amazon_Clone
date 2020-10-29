@@ -3,8 +3,8 @@ import './CheckoutProduct.css';
 import StarIcon from '@material-ui/icons/Star';
 import { useStateValue } from '../StateProvider';
 
-export default ({asin, image, title, price, rating}) => {
-  const [{cart}, dispatch] = useStateValue();
+const CheckoutProduct = ({asin, image, title, price, rating}) => {
+  const [{}, dispatch] = useStateValue();
 
   const removeFromCart = () => {
     dispatch({
@@ -30,3 +30,5 @@ export default ({asin, image, title, price, rating}) => {
     </div>
   )
 }
+
+export default CheckoutProduct;

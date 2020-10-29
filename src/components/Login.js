@@ -3,7 +3,7 @@ import './Login.css';
 import {Link, useHistory} from 'react-router-dom';
 import {auth} from '../firebase';
 
-export default () => {
+const Login = () => {
   const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -55,3 +55,5 @@ export default () => {
     </div>
   )
 }
+
+export default Login;

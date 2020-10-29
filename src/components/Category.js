@@ -1,16 +1,16 @@
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import React from 'react';
 import './Category.css';
 import { useStateValue } from '../StateProvider';
-import $ from 'jquery';
+import { scrollToTop } from '../reducer';
 
-export default ({title, image}) => {
+const Category = ({title, image}) => {
   const history = useHistory();
   const [{}, dispatch] = useStateValue();
 
   const search = () => {
     history.push(`/search?q=${title}`);
-    $(window).scrollTop(0);
+    scrollToTop();
     dispatch({type: 'SEARCH', q: title});
   }
 
@@ -23,3 +23,5 @@ export default ({title, image}) => {
     </div>
   )
 }
+
+export default Category;

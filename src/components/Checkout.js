@@ -4,8 +4,8 @@ import './Checkout.css';
 import CheckoutProduct from './CheckoutProduct';
 import Subtotal from './Subtotal';
 
-export default () => {
-  const [{cart, user}, dispatch] = useStateValue();
+const Checkout = () => {
+  const [{cart, user}, _] = useStateValue();
 
   return (
     <div className="checkout">
@@ -31,3 +31,5 @@ export default () => {
     </div>
   )
 }
+
+export default Checkout;

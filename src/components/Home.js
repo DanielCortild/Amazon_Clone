@@ -2,7 +2,7 @@ import React from 'react';
 import Category from './Category';
 import './Home.css';
 
-export default () => {
+const Home = () => {
   return (
     <div className="home">
       <div className="home__container">
@@ -30,3 +30,5 @@ export default () => {
     </div>
   )
 }
+
+export default Home;

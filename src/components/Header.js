@@ -5,9 +5,9 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import {Link, useHistory} from "react-router-dom";
 import { useStateValue } from '../StateProvider';
 import { auth } from '../firebase';
-import $ from 'jquery';
+import { scrollToTop } from '../reducer';
 
-export default () => {
+const Header = () => {
   const history = useHistory();
   const [{cart, user}, _] = useStateValue();
   const [searchTerm, setSearchTerm] = useState('');
@@ -20,7 +20,6 @@ export default () => {
   const handleSignInOut = e => {
     if(user) auth.signOut();
   }
-
   const search = e => {
     e.preventDefault();
     if(searchTerm.length > 0) {
@@ -32,7 +31,7 @@ export default () => {
     } else {
       history.push('/');
     }
-    $(window).scrollTop(0);
+    scrollToTop();
   }
 
   return (
@@ -49,13 +48,13 @@ export default () => {
       <div className="header__nav">
         <Link to={!user && "/login"}>
           <div onClick={handleSignInOut} className="header__option">
-            <span className="header__optionLineOne">Hello {user ? user?.email : 'Guest'}</span>
+            <span className="header__optionLineOne">Hello {user?.email || 'Guest'}</span>
             <span className="header__optionLineTwo">{user ? 'Sign Out' : 'Sign In'}</span>
           </div>
         </Link>
 
         <Link to='/checkout'>
-          <div className="header__optionBasket">
+          <div className="header__optionBasket" onClick={() => scrollToTop()}>
             <ShoppingBasketIcon />
             <span className="header__optionLineTwo header__basketCount">{cart?.length}</span>
           </div>
@@ -65,3 +64,5 @@ export default () => {
     </div>
   )
 }
+
+export default Header;
