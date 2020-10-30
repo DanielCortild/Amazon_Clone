@@ -19,8 +19,8 @@ const reducer = (state, action) => {
     case 'REMOVE_FROM_CART':
       const index = state.cart.findIndex((item) => item.asin === action.asin);
       return {...state, cart: [...state.cart].splice(index, 1)}
-      // const index = state.cart.findIndex(item => item.asin === action.asin);
-      // return {...state, cart: state.cart.splice(index, 1)};
+    case 'EMPTY_CART':
+      return {...state, cart: []}
     case 'SET_USER':
       return {...state, user: action.user};
     case 'SEARCH':
