@@ -12,6 +12,7 @@ import Login from './components/Login';
 import Payment from './components/Payment';
 import Search from './components/Search';
 import Orders from './components/Orders';
+import Register from './components/Register';
 
 const promise = loadStripe("pk_test_51HhelELnWubFQLSClhNvwFtMX09BW59m2kCdU13iypA6nIxQXCmbvViMTxLfs5r5r1qf7NrG9Iih4F45FPP6BsF8004FAM4Zs6");
 
@@ -39,6 +40,9 @@ const App = () => {
       <Switch>
         <Route path="/login">
           <Login />
+        </Route>
+        <Route path="/register">
+          <Register />
         </Route>
         <Route path="/checkout">
           <Header />     

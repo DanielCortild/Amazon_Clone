@@ -1,4 +1,4 @@
-.login {
+.register {
   background-color: #fff;
   height: 100vh;
   display: flex;
@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.login__logo {
+.register__logo {
   margin-top: 10px;
   margin-right: auto;
   margin-left: auto;
@@ -14,7 +14,7 @@
   width: 130px;
 }
 
-.login__container {
+.register__container {
   width: 300px;
   height: fit-content;
   display: flex;
@@ -24,52 +24,35 @@
   padding: 20px;
 }
 
-.login__container > h1 {
+.register__container > h1 {
   font-weight: 500;
   margin-bottom: 20px;
 }
 
-.login__container > form > h5 {
-  margin-bottom: 5px;
+.register__container > form > h5 {
+  margin-bottom: 8px;
 }
 
-.login__container > form > input {
+.register__container > form > input {
   height: 30px;
   margin-bottom: 10px;
   background-color: white;
   width: 98%;
+  border-radius: 5px;
+  border: 1.5px solid lightgray;
 }
 
-.login__container > p {
+.register__container > p {
   margin-top: 15px;
   font-size: 12px;
 }
 
-.login__signInBtn {
-  background-color: #f0c14b;
-  border-radius: 2px;
+.register__registerBtn {
+  background-color: #efbe46;
+  border-radius: 4px;
   width: 100%;
   height: 30px;
   border: 1px solid;
   margin-top: 10px;
-  border-radius: 4px;
   border-color: gray;
-  cursor: pointer;
-}
-
-.login__newText {
-  color: #555555;
-  font-size: 12px;
-  font-weight: 500;
-  margin-top: 20px;
-}
-
-.login__registerBtn {
-  border-radius: 4px;
-  width: 340px;
-  height: 30px;
-  border: 1px solid;
-  margin-top: 10px;
-  border-color: darkgray;
-  cursor: pointer;
 }

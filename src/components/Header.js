@@ -5,17 +5,26 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import {Link, useHistory} from "react-router-dom";
 import { useStateValue } from '../StateProvider';
 import { auth } from '../firebase';
-import { scrollToTop } from '../reducer';
+import { scrollToTop, getName } from '../reducer';
 
 const Header = () => {
   const history = useHistory();
   const [{cart, user}, _] = useStateValue();
   const [searchTerm, setSearchTerm] = useState('');
   const [{}, dispatch] = useStateValue();
+  const [name, setName] = useState('Guest');
 
   useEffect(() => {
     setSearchTerm(history?.location?.search.split("=").pop());
-  }, [history?.location?.search]);
+  }, [history?.location?.search, user]);
+
+  useEffect(() => {
+    const fetchName = async () => {
+      await getName(user, setName, false);
+    }
+    fetchName();
+  }, [user]);
+
 
   const handleSignInOut = e => {
     if(user) auth.signOut();
@@ -37,7 +46,7 @@ const Header = () => {
   return (
     <div className="header">
       <Link to='/'>
-        <img className="header__logo" src="https://1079life.com/wp-content/uploads/2018/12/amazon_PNG11.png" />
+        <img className="header__logo" src="amazon_logo_white.png" />
       </Link>
 
       <form className="header__search" name="search-form" onSubmit={search} >
@@ -48,7 +57,7 @@ const Header = () => {
       <div className="header__nav">
         <Link to={!user && "/login"}>
           <div onClick={handleSignInOut} className="header__option">
-            <span className="header__optionLineOne">Hello {user?.email || 'Guest'}</span>
+            <span className="header__optionLineOne">Hello {name}</span>
             <span className="header__optionLineTwo">{user ? 'Sign Out' : 'Sign In'}</span>
           </div>
         </Link>

@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { db } from './firebase';
 
 export const initialState = {
   cart: [],
@@ -8,6 +9,22 @@ export const initialState = {
 
 export const getTotal = (cart) => {
   return cart?.reduce((total, item) => total+item.price, 0);
+}
+
+export const getName = async (user, setName, fullName) => {
+  if(user) {
+    db.collection('users')
+      .doc(user?.uid)
+      .get()
+      .then(doc => {
+        fullName
+        ? setName(doc?.data().name)
+        : setName(doc?.data().name.split(" ").shift());
+      })
+  } else {
+    return 'Guest';
+  }
+  
 }
 
 export const scrollToTop = () => $(window).scrollTop(0);

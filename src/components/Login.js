@@ -18,16 +18,6 @@ const Login = () => {
         .catch(error => alert(error.message));
   }
 
-  const register = e => {
-    e.preventDefault();
-
-    auth.createUserWithEmailAndPassword(email, password)
-        .then(auth =>  {
-          if(auth) history.push('/');
-        })
-        .catch(error => alert(error.message));
-  }
-
   return (
     <div className="login">
       <Link to='/'>
@@ -35,10 +25,10 @@ const Login = () => {
       </Link>
 
       <div className="login__container">
-        <h1>Sign-in</h1>
+        <h1>Sign-In</h1>
 
         <form action="">
-          <h5>E-mail</h5>
+          <h5>Email</h5>
           <input type="text" value={email} onChange={e => setEmail(e.target.value)} />
 
           <h5>Password</h5>
@@ -49,9 +39,12 @@ const Login = () => {
 
         <p>By continuing, you agree to Amazon's Conditions of Use and Privacy Notice.</p>
 
-        <button className="login__registerBtn" onClick={register}>Create your Amazon Acount</button>
-
       </div>
+
+      <p className="login__newText">New to Amazon?</p>
+
+      <Link to="/register"><button className="login__registerBtn">Create your Amazon Acount</button></Link>
+
     </div>
   )
 }
