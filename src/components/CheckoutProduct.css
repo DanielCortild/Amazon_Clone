@@ -1,7 +1,9 @@
 .checkoutProduct {
   display: flex;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 0.2px solid lightgray;
 }
 
 .checkoutProduct__image {
@@ -21,6 +23,7 @@
 
 .checkoutProduct__rating {
   display: flex;
+  color: orange;
 }
 
 .checkoutProduct__info > button {
@@ -29,4 +32,11 @@
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
   color: #111111;
+}
+
+.checkoutProduct__price {
+  margin-right: 20px;
+  margin-left: 40px;
+  font-weight: 600;
+  font-size: 18px;
 }

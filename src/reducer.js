@@ -35,7 +35,9 @@ const reducer = (state, action) => {
       return {...state, cart: [...state.cart, action.item]};
     case 'REMOVE_FROM_CART':
       const index = state.cart.findIndex((item) => item.asin === action.asin);
-      return {...state, cart: [...state.cart].splice(index, 1)}
+      const newCart = [...state.cart]
+      newCart.splice(index, 1);
+      return {...state, cart: newCart}
     case 'EMPTY_CART':
       return {...state, cart: []}
     case 'SET_USER':

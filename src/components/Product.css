@@ -14,7 +14,6 @@
   height: 200px;
   flex: 0 0 300px;
   margin-right: 10px;
-
   display: flex;
   justify-content: center;
 }
@@ -27,13 +26,23 @@
 
 .product__info {
   flex-grow: 1;
-  height: 120px;
   margin-bottom: 15px;
   margin-right: 15px;
 }
 
 .product__price {
   margin-top: 5px;
+  position: relative;
+}
+
+.product__price small {
+  font-size: 12px;
+  top: 4px;
+  position: absolute;
+}
+.product__price strong {
+  position: absolute;
+  left: 8px;
 }
 
 .product__rating {
@@ -49,4 +58,5 @@
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
   color: #111111;
+  border-radius: 10px;
 }
